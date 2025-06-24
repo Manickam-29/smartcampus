@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:smartcampus/common/widgets/devicesize.dart';
 import 'package:smartcampus/common/widgets/splashcardswiper.dart';
 import 'package:smartcampus/constants/colors.dart';
+import 'package:smartcampus/constants/texts.dart';
 import 'package:smartcampus/services/sboperations.dart';
+import '../../routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +20,21 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    SBOperations().retrieveAppImagesFromSB();
+    SBOperations().retrieveAppImagesFromSB(() {
+      setState(() {});
+    });
+    SBOperations().getAllTeacherBasicDetails(() {
+      setState(() {});
+    });
+    SBOperations().getAllTeacherProfessionalDetails(() {
+      setState(() {});
+    });
+    SBOperations().getAllStudentsBasicDetails(() {
+      setState(() {});
+    });
+    SBOperations().getAllStudentsSchoolDetails(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -29,7 +44,18 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: lightGrayishBlue,
       body: SafeArea(
-        child: SplashCardSwiper(w: w * 0.8, h: h * 0.8),
+        child: SplashCardSwiper(
+          w: w * 0.8,
+          h: h * 0.8,
+          onpressed: (name, url) {
+            setState(() {
+              selectedUser = name;
+              selectedUserImage = url;
+            });
+
+            Navigator.pushNamed(context, AppRoutes.login);
+          },
+        ),
       ),
     );
   }

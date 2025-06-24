@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:smartcampus/common/utils/functions.dart';
@@ -11,8 +10,14 @@ import 'package:smartcampus/constants/lists.dart';
 class SplashCardSwiper extends StatelessWidget {
   final double w;
   final double h;
+  final void Function(String, String) onpressed;
 
-  const SplashCardSwiper({super.key, required this.w, required this.h});
+  const SplashCardSwiper({
+    super.key,
+    required this.w,
+    required this.h,
+    required this.onpressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +58,9 @@ class SplashCardSwiper extends StatelessWidget {
               Buttons().circularElevatedButton(
                 height: h * 0.08,
                 width: w * 0.75,
-                onPressed: () {},
+                onPressed: () {
+                  onpressed(buttonName, imageUrl!);
+                },
                 buttonBG: tealBlue,
                 buttonText:
                     "I'm ${Functions().capitalizeFirstLetter(buttonName)}",

@@ -1,0 +1,2 @@
+String selectedUser = "";
+String selectedUserImage = "";

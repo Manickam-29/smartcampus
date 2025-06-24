@@ -4,7 +4,7 @@ class Buttons {
   Widget circularElevatedButton({
     required double height,
     required double width,
-    required VoidCallback onPressed,
+    required Function()? onPressed,
     required Color buttonBG,
     required String buttonText,
     required Color buttonTextColor,
