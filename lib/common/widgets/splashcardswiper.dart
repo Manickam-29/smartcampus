@@ -24,7 +24,7 @@ class SplashCardSwiper extends StatelessWidget {
     return Swiper(
       itemBuilder: (BuildContext context, int index) {
         String buttonName = whoAreYou[index];
-        final imageUrl = Functions().getSplashImageUrl(buttonName);
+        final imageUrl = Functions().getImageUrlUsingKey(buttonName);
 
         return Container(
           height: h,

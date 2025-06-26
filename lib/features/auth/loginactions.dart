@@ -1,8 +1,8 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:smartcampus/common/utils/operations.dart';
 import 'package:smartcampus/common/widgets/toastmessage.dart';
 import 'package:smartcampus/constants/lists.dart';
+import 'package:smartcampus/routes/app_routes.dart';
 
 class LoginActions {
   void loginButtonActionForTeacher(
@@ -22,7 +22,10 @@ class LoginActions {
             context,
             "Login successful! Taking you to the dashboard...",
           );
-          // Navigate to home/dashboard here
+
+          Operations().loadCurrentTeacherInfo(id);
+
+          Navigator.pushReplacementNamed(context, AppRoutes.home);
         } else {
           ToastMessage.error(context, "Password doesn’t match our records.");
         }

@@ -18,39 +18,59 @@ class SBOperations {
           .from('images')
           .getPublicUrl(file.name);
 
-      list.add({Functions().removeTypeFromName(file.name, '.jpg'): publicUrl});
+      list.add({Functions().removeTypeFromName(file.name): publicUrl});
+      list.add({Functions().removeTypeFromName(file.name): publicUrl});
     }
 
-    splashImages = list;
-
+    inAppImages = list;
     onCall();
   }
 
   Future<void> getAllTeacherBasicDetails(VoidCallback onCall) async {
     final data = await supabase.from('teachers_basic_details').select();
     teacherBasicDetails = data;
-    log("Teacher Basic Details : $teacherBasicDetails");
     onCall();
   }
 
   Future<void> getAllTeacherProfessionalDetails(VoidCallback onCall) async {
     final data = await supabase.from('teachers_professional_details').select();
     teachersProfessionalDetails = data;
-    log("Teacher Professional Details : $teachersProfessionalDetails");
     onCall();
   }
 
   Future<void> getAllStudentsBasicDetails(VoidCallback onCall) async {
     final data = await supabase.from('students_basic_details').select();
     studentsBasicDetails = data;
-    log("Students Basic Details : $studentsBasicDetails");
     onCall();
   }
 
   Future<void> getAllStudentsSchoolDetails(VoidCallback onCall) async {
     final data = await supabase.from('students_school_info').select();
     studentsSchoolDetails = data;
-    log("Students School Details : $studentsSchoolDetails");
     onCall();
+  }
+
+  Future<void> getAllSchoolEventsDetails(VoidCallback onCall) async {
+    final data = await supabase.from('school_events').select();
+    schoolEventsDetails = data;
+    onCall();
+  }
+
+  Future<Map<String, dynamic>?> retrieveCurrentTeacher(String teacherId) async {
+    final List<Map<String, dynamic>> basic = await supabase
+        .from('teachers_basic_details')
+        .select()
+        .eq('teacher_id', teacherId);
+    final List<Map<String, dynamic>> professional = await supabase
+        .from('teachers_professional_details')
+        .select()
+        .eq('teacher_id', teacherId);
+
+    final Map<String, dynamic> result = Functions().combineTwoMapData(
+      basic[0],
+      professional[0],
+    );
+
+    return result;
   }
 }
