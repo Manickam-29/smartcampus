@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartcampus/common/utils/navigationsutils.dart';
 import 'package:smartcampus/common/utils/operations.dart';
 import 'package:smartcampus/common/widgets/toastmessage.dart';
 import 'package:smartcampus/constants/lists.dart';
@@ -25,7 +26,10 @@ class LoginActions {
 
           Operations().loadCurrentTeacherInfo(id);
 
-          Navigator.pushReplacementNamed(context, AppRoutes.home);
+          NavigationsUtils().pushNameReplacementNavigation(
+            context,
+            AppRoutes.home,
+          );
         } else {
           ToastMessage.error(context, "Password doesn’t match our records.");
         }

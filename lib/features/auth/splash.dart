@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartcampus/common/utils/navigationsutils.dart';
 import 'package:smartcampus/common/widgets/devicesize.dart';
 import 'package:smartcampus/common/widgets/loadingscreen.dart';
 import 'package:smartcampus/common/widgets/splashcardswiper.dart';
@@ -70,7 +71,10 @@ class _SplashScreenState extends State<SplashScreen> {
                     selectedUserImage = url;
                   });
 
-                  Navigator.pushNamed(context, AppRoutes.login);
+                  NavigationsUtils().pushNameNavigation(
+                    context,
+                    AppRoutes.login,
+                  );
                 },
               ),
       ),

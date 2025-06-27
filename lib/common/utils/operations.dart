@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:smartcampus/common/utils/navigationsutils.dart';
 import 'package:smartcampus/constants/lists.dart';
 import 'package:smartcampus/constants/maps.dart';
 import 'package:smartcampus/routes/app_routes.dart';
@@ -19,8 +20,18 @@ class Operations {
 
   void teacherDashBoard(BuildContext context, int index) {
     switch (index) {
+      case 0:
+        NavigationsUtils().pushNameReplacementNavigation(
+          context,
+          AppRoutes.myProfile,
+        );
+        break;
+
       case 9:
-        Navigator.pushReplacementNamed(context, AppRoutes.splash);
+        NavigationsUtils().pushNameReplacementNavigation(
+          context,
+          AppRoutes.splash,
+        );
         break;
 
       default:

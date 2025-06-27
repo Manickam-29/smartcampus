@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:smartcampus/constants/colors.dart';
 import 'package:smartcampus/common/widgets/dashboardicons.dart';
 import 'package:smartcampus/common/widgets/devicesize.dart';
 import 'package:smartcampus/common/widgets/padding.dart';
-import 'package:smartcampus/constants/colors.dart';
 import 'package:smartcampus/constants/lists.dart';
-
 import '../../common/widgets/schooleventscarousel.dart';
+
+void showHomeBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    isDismissible: false,
+    backgroundColor: white, // Make modal background transparent
+    barrierColor: Colors.transparent, // Remove the dark overlay entirely
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+    ),
+    builder: (context) {
+      return Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: TeachersDashBoard(), // Wrap in container for styling
+      );
+    },
+  );
+}
 
 class TeachersDashBoard extends StatefulWidget {
   const TeachersDashBoard({super.key});
@@ -23,7 +43,6 @@ class _TeachersDashBoardState extends State<TeachersDashBoard> {
     return Container(
       height: h * 0.85,
       width: w,
-      padding: EdgeInsets.only(top: 16),
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.only(
@@ -34,7 +53,7 @@ class _TeachersDashBoardState extends State<TeachersDashBoard> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            CommonPadding.topPadding16,
+            CommonPadding.topPadding8,
             Center(
               child: SchoolEventsCarousel(h: h, w: w),
             ),

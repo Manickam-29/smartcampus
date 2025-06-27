@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:smartcampus/common/utils/navigationsutils.dart';
 import 'package:smartcampus/common/widgets/devicesize.dart';
 import 'package:smartcampus/common/widgets/images.dart';
 import 'package:smartcampus/common/widgets/loadingscreen.dart';
@@ -8,7 +9,7 @@ import 'package:smartcampus/constants/colors.dart';
 import 'package:smartcampus/constants/maps.dart';
 import 'package:smartcampus/routes/app_routes.dart';
 import '../../common/utils/functions.dart';
-import '../../common/widgets/bottomsheets/homebs.dart';
+import '../bottomsheets/homebs.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -110,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         IconButton(
                           onPressed: () {
-                            Navigator.pushReplacementNamed(
+                            NavigationsUtils().pushNameReplacementNavigation(
                               context,
                               AppRoutes.home,
                             );

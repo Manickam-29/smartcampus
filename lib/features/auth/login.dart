@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smartcampus/common/widgets/devicesize.dart';
 import 'package:smartcampus/common/widgets/images.dart';
-import 'package:smartcampus/common/widgets/bottomsheets/loginbs.dart';
 import 'package:smartcampus/constants/colors.dart';
 import 'package:smartcampus/constants/texts.dart';
+import '../bottomsheets/loginbs.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
