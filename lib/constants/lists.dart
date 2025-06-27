@@ -16,7 +16,6 @@ List<String> teacherModuleTitles = [
   "Exams",
   "Marks Reports",
   "Leave Application",
-  "Events",
   "Help & Support",
   "Log Out",
 ];
@@ -28,7 +27,6 @@ List<IconData> teacherModuleIcons = [
   MdiIcons.notebookEdit,
   MdiIcons.chartBar,
   MdiIcons.applicationEditOutline,
-  MdiIcons.calendarMultiple,
   MdiIcons.helpBoxMultipleOutline,
   Icons.logout,
 ];
