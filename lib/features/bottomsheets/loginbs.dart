@@ -36,9 +36,9 @@ class _LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<_LoginForm> {
-  TextEditingController idController = TextEditingController(text: 'T001');
+  TextEditingController idController = TextEditingController(text: 'T002');
   TextEditingController passController = TextEditingController(
-    text: 'test@001',
+    text: 'test@002',
   );
   bool _obscurePassword = true;
   double h = 0.0, w = 0.0;

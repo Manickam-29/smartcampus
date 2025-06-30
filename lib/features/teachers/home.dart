@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:smartcampus/common/utils/navigationsutils.dart';
+import 'package:smartcampus/common/utils/operations.dart';
 import 'package:smartcampus/common/widgets/devicesize.dart';
 import 'package:smartcampus/common/widgets/images.dart';
 import 'package:smartcampus/common/widgets/loadingscreen.dart';
@@ -44,6 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
     imageUrl = (url != null && url.isNotEmpty)
         ? url
         : 'https://example.com/default_teacher.png';
+
+    Operations().getAllSubjectTodayTimeTable();
+    Operations().extractSubjectsSchedule();
 
     if (mounted) {
       setState(() => isLoading = false);
