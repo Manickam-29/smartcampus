@@ -22,34 +22,52 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    SBOperations().retrieveAppImagesFromSB(() {
-      setState(() {});
-    });
-    SBOperations().getAllTeacherBasicDetails(() {
-      setState(() {});
-    });
-    SBOperations().getAllTeacherProfessionalDetails(() {
-      setState(() {});
-    });
-    SBOperations().getAllStudentsBasicDetails(() {
-      setState(() {});
-    });
-    SBOperations().getAllStudentsSchoolDetails(() {
-      setState(() {});
-    });
-    SBOperations().getAllSchoolEventsDetails(() {
-      setState(() {});
-    });
-
-    setLoadingOff();
+    loadInitialData();
   }
 
-  void setLoadingOff() {
-    Future.delayed(Duration(seconds: 3), () {
-      setState(() {
-        isLoading = false;
+  Future<void> loadInitialData() async {
+    try {
+      await SBOperations().retrieveAppImagesFromSB(() {
+        setState(() {});
       });
+
+      await SBOperations().getAllTeacherBasicDetails(() {
+        setState(() {});
+      });
+
+      await SBOperations().getAllTeacherProfessionalDetails(() {
+        setState(() {});
+      });
+
+      await SBOperations().getAllStudentsBasicDetails(() {
+        setState(() {});
+      });
+
+      await SBOperations().getAllStudentsSchoolDetails(() {
+        setState(() {});
+      });
+
+      await SBOperations().getAllSchoolEventsDetails(() {
+        setState(() {});
+      });
+
+      await Future.wait([
+        SBOperations().getGrade1ClassSchedule(() => setState(() {})),
+        SBOperations().getGrade2ClassSchedule(() => setState(() {})),
+        SBOperations().getGrade3ClassSchedule(() => setState(() {})),
+        SBOperations().getGrade4ClassSchedule(() => setState(() {})),
+        SBOperations().getGrade5ClassSchedule(() => setState(() {})),
+      ]);
+    } catch (e) {
+      // Optional: Show error UI or log
+      debugPrint('Error while loading splash data: $e');
+    }
+
+    // Delay for better UX (optional)
+    await Future.delayed(const Duration(seconds: 1));
+
+    setState(() {
+      isLoading = false;
     });
   }
 
@@ -57,26 +75,27 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     h = Devicesize().getDeviceHeight(context);
     w = Devicesize().getDeviceWidth(context);
+
     return Scaffold(
       backgroundColor: lightGrayishBlue,
       body: SafeArea(
         child: isLoading
-            ? LoadingScreen()
+            ? const LoadingScreen()
             : SplashCardSwiper(
-                w: w * 0.8,
-                h: h * 0.8,
-                onpressed: (name, url) {
-                  setState(() {
-                    selectedUser = name;
-                    selectedUserImage = url;
-                  });
+          w: w * 0.8,
+          h: h * 0.8,
+          onpressed: (name, url) {
+            setState(() {
+              selectedUser = name;
+              selectedUserImage = url;
+            });
 
-                  NavigationsUtils().pushNameNavigation(
-                    context,
-                    AppRoutes.login,
-                  );
-                },
-              ),
+            NavigationsUtils().pushNameNavigation(
+              context,
+              AppRoutes.login,
+            );
+          },
+        ),
       ),
     );
   }

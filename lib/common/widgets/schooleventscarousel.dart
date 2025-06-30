@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/accordion/gf_accordion.dart';
 import 'package:getwidget/components/carousel/gf_items_carousel.dart';
@@ -27,7 +25,6 @@ class _SchoolEventsCarouselState extends State<SchoolEventsCarousel> {
       rowCount: 1,
       itemHeight: isMoreOn ? widget.h * 0.47 : widget.h * 0.25,
       children: schoolEventsDetails.map((event) {
-        log(event.toString());
         return Container(
           width: widget.w * 0.7,
           margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),

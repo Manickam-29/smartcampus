@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:smartcampus/common/utils/functions.dart';
 import 'package:smartcampus/constants/lists.dart';
@@ -52,6 +51,36 @@ class SBOperations {
   Future<void> getAllSchoolEventsDetails(VoidCallback onCall) async {
     final data = await supabase.from('school_events').select();
     schoolEventsDetails = data;
+    onCall();
+  }
+
+  Future<void> getGrade1ClassSchedule(VoidCallback onCall) async {
+    final data = await supabase.from('grade_1_periods').select();
+    grade1Schedule = data;
+    onCall();
+  }
+
+  Future<void> getGrade2ClassSchedule(VoidCallback onCall) async {
+    final data = await supabase.from('grade_2_periods').select();
+    grade2Schedule = data;
+    onCall();
+  }
+
+  Future<void> getGrade3ClassSchedule(VoidCallback onCall) async {
+    final data = await supabase.from('grade_3_periods').select();
+    grade3Schedule = data;
+    onCall();
+  }
+
+  Future<void> getGrade4ClassSchedule(VoidCallback onCall) async {
+    final data = await supabase.from('grade_4_periods').select();
+    grade4Schedule = data;
+    onCall();
+  }
+
+  Future<void> getGrade5ClassSchedule(VoidCallback onCall) async {
+    final data = await supabase.from('grade_5_periods').select();
+    grade5Schedule = data;
     onCall();
   }
 

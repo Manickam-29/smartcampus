@@ -25,4 +25,25 @@ class Functions {
   ) {
     return {...map1, ...map2};
   }
+
+  bool compareTwoDatesSame(String date1, String date2) {
+    return date1 == date2;
+  }
+
+  String? getTimeSlotForSubject(Map<String, String> timetable, String subject) {
+    return timetable.entries
+        .firstWhere(
+          (entry) => entry.value == subject && entry.key != "Day",
+      orElse: () => const MapEntry('', ''),
+    )
+        .key
+        .isNotEmpty
+        ? timetable.entries
+        .firstWhere(
+          (entry) => entry.value == subject && entry.key != "Day",
+    )
+        .key
+        : null;
+  }
+
 }

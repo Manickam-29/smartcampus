@@ -8,6 +8,14 @@ List<Map<String, dynamic>> teachersProfessionalDetails = [];
 List<Map<String, dynamic>> studentsBasicDetails = [];
 List<Map<String, dynamic>> studentsSchoolDetails = [];
 List<Map<String, dynamic>> schoolEventsDetails = [];
+List<Map<String, dynamic>> grade1Schedule = [];
+List<Map<String, dynamic>> grade2Schedule = [];
+List<Map<String, dynamic>> grade3Schedule = [];
+List<Map<String, dynamic>> grade4Schedule = [];
+List<Map<String, dynamic>> grade5Schedule = [];
+List<Map<String,dynamic>> todayAllTimeTable = [];
+List<Map<String,dynamic>> currentTeacherSchedule = [];
+List<Map<String, dynamic>> subjectTimeTable = [];
 List<String> teacherModuleTitles = [
   "My Profile",
   "My Schedule",
@@ -30,3 +38,4 @@ List<IconData> teacherModuleIcons = [
   MdiIcons.helpBoxMultipleOutline,
   Icons.logout,
 ];
+List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

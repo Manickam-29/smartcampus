@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:smartcampus/common/utils/datehelper.dart';
 import 'package:smartcampus/common/utils/navigationsutils.dart';
@@ -7,7 +6,6 @@ import 'package:smartcampus/common/widgets/padding.dart';
 import 'package:smartcampus/constants/colors.dart';
 import 'package:smartcampus/constants/maps.dart';
 import 'package:smartcampus/routes/app_routes.dart';
-
 import '../../common/widgets/buttons.dart';
 
 void showProfileSheet(BuildContext context) {
@@ -42,13 +40,6 @@ class MyProfileBS extends StatefulWidget {
 class _MyProfileBSState extends State<MyProfileBS> {
   double h = 0.0;
   double w = 0.0;
-
-  @override
-  void initState() {
-    super.initState();
-
-    log(selectedCurrentTeacher.toString());
-  }
 
   @override
   Widget build(BuildContext context) {
