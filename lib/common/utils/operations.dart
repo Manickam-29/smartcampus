@@ -6,6 +6,8 @@ import 'package:smartcampus/constants/maps.dart';
 import 'package:smartcampus/routes/app_routes.dart';
 import 'package:smartcampus/services/sboperations.dart';
 
+import 'functions.dart';
+
 class Operations {
   Future loadCurrentTeacherInfo(String teacherId) async {
     try {
@@ -30,6 +32,13 @@ class Operations {
         NavigationsUtils().pushNameReplacementNavigation(
           context,
           AppRoutes.mySchedule,
+        );
+        break;
+
+      case 2:
+        NavigationsUtils().pushNameReplacementNavigation(
+          context,
+          AppRoutes.studentAttendance,
         );
         break;
 
@@ -105,5 +114,22 @@ class Operations {
     }
 
     subjectTimeTable = classes;
+  }
+
+  List<Map<String, dynamic>> getStudentFromSelectedClass(String selectedClass) {
+    List<Map<String, dynamic>> selectStudDetails = [];
+
+    for (int i = 0; i < studentsSchoolDetails.length; i++) {
+
+      if (studentsSchoolDetails[i]['class_enrolled'] == selectedClass) {
+        Map<String, dynamic> map = Functions().combineTwoMapData(
+          studentsBasicDetails[i],
+          studentsSchoolDetails[i],
+        );
+
+        selectStudDetails.add(map);
+      }
+    }
+    return selectStudDetails;
   }
 }

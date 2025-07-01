@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:smartcampus/common/utils/datehelper.dart';
 import 'package:smartcampus/common/widgets/padding.dart';
@@ -133,7 +132,6 @@ class _MyScheduleBSState extends State<MyScheduleBS> {
   List<Widget> _buildClassSchedule() {
     return List.generate(subjectTimeTable.length, (index) {
       final item = subjectTimeTable[index];
-      log(item.toString());
       return Column(
         children: [
           ClassInfo(

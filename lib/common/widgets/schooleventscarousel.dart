@@ -3,6 +3,7 @@ import 'package:getwidget/components/accordion/gf_accordion.dart';
 import 'package:getwidget/components/carousel/gf_items_carousel.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:smartcampus/common/widgets/padding.dart';
+import 'package:smartcampus/constants/colors.dart';
 import '../../constants/lists.dart';
 
 class SchoolEventsCarousel extends StatefulWidget {
@@ -29,21 +30,17 @@ class _SchoolEventsCarouselState extends State<SchoolEventsCarousel> {
           width: widget.w * 0.7,
           margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.blue.shade300, width: 1.5),
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.2),
-                blurRadius: 6,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
           child: schoolEventsDetails.isEmpty
               ? const Text('No Events!')
               : GFAccordion(
+                titleBorder: Border.all(
+                  color: skyBlue
+                ),
+                titleBorderRadius: BorderRadius.circular(24),
+                  contentBorderRadius: BorderRadius.circular(24),
+                  contentBorder: Border.all(
+                      color: skyBlue
+                  ),
                   titleChild: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

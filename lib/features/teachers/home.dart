@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: const TextStyle(
                                   color: white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 24,
+                                  fontSize: 22,
                                 ),
                               ),
                               Text(

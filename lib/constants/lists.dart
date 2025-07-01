@@ -13,28 +13,37 @@ List<Map<String, dynamic>> grade2Schedule = [];
 List<Map<String, dynamic>> grade3Schedule = [];
 List<Map<String, dynamic>> grade4Schedule = [];
 List<Map<String, dynamic>> grade5Schedule = [];
-List<Map<String,dynamic>> todayAllTimeTable = [];
-List<Map<String,dynamic>> currentTeacherSchedule = [];
+List<Map<String, dynamic>> todayAllTimeTable = [];
+List<Map<String, dynamic>> currentTeacherSchedule = [];
 List<Map<String, dynamic>> subjectTimeTable = [];
+List<Map<String, dynamic>> selectedClassStud = [];
+List<String> classesList = [
+  "Grade 1",
+  "Grade 2",
+  "Grade 3",
+  "Grade 4",
+  "Grade 5",
+];
 List<String> teacherModuleTitles = [
   "My Profile",
   "My Schedule",
-  "Class & Subjects",
   "Student Attendance",
   "Exams",
   "Marks Reports",
   "Leave Application",
+  "complain",
   "Help & Support",
   "Log Out",
 ];
+List<String> attendanceOptions = ['Present', 'Absent', 'Leave'];
 List<IconData> teacherModuleIcons = [
   Icons.perm_identity,
   Icons.schedule,
-  Icons.class_,
   Icons.list,
   MdiIcons.notebookEdit,
   MdiIcons.chartBar,
   MdiIcons.applicationEditOutline,
+  MdiIcons.messageAlert,
   MdiIcons.helpBoxMultipleOutline,
   Icons.logout,
 ];
